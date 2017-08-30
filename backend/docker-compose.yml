@@ -3,9 +3,10 @@ version: '2.1'
 services:
   openresty:
     image: "openresty/openresty:trusty"
+    entrypoint: [/usr/local/openresty/bin/openresty, -c, /web/nginx.conf, -g, daemon off;]
     ports:
-      - "81:80"
-      - "444:443"
+      - "80:80"
+      - "443:443"
     volumes:
       - ./web:/web
     networks:
