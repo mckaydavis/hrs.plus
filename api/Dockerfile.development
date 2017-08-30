@@ -1,0 +1,12 @@
+FROM node:8.2.1
+
+COPY package.json /app/
+
+WORKDIR /app
+
+RUN npm install
+
+ARG EXPRESS_SERVER_PORT
+EXPOSE ${EXPRESS_SERVER_PORT}
+
+CMD ["npm", "run", "dev"]
