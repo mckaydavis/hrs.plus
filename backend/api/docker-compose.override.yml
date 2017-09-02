@@ -10,7 +10,7 @@ services:
     command: bash -c "npm install && npm run dev"
     container_name: hsr_api
     ports:
-      - ${EXPOSED_HOST_API_PORT}:8080
+      - 8080:8080
     volumes:
       - "${PWD}:/app"
       - "/app/node_modules/"
