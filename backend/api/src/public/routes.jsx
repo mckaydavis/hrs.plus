@@ -3,11 +3,12 @@ const ReactRouter = require("react-router");
 const { StaticRouter, IndexRoute, Route } = ReactRouter;
 
 const Home = require("./components/home.jsx");
+const App = require("./components/app.jsx");
 
-const Routes = (module.exports = () => {
+const routes = (module.exports = () => {
   return (
     <div>
-      <Route path="/" render={props => <Home />} />
+      <Route exact path="/" render={props => <Home />} />
     </div>
   );
 });

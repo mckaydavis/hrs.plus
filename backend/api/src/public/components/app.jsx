@@ -6,7 +6,10 @@ const App = (module.exports = props => {
       <head>
         <title>{props.title}</title>
       </head>
-      <body>{props.children}</body>
+      <body>
+        <div id="app">{props.children}</div>
+        <script src="/static/js/app.js" />
+      </body>
     </html>
   );
 });
