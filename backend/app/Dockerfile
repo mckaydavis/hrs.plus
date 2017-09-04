@@ -3,13 +3,10 @@ FROM node:8.4.0
 RUN mkdir /app
 WORKDIR /app
 
-COPY ["package.json", "/app"]
+COPY . /app
 
-ARG NODE_ENV=production
-RUN ["npm", "install"]
-
-COPY [".", "/app"]
+RUN npm install --production
 
 EXPOSE 8080
 
-CMD ["npm", "start"]
+CMD npm run dev
