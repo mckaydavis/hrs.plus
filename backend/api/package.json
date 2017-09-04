@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "body-parser": "1.17.2",
-    "cheerio": "1.0.0-rc.2",
     "express": "4.15.4",
     "graphql": "0.11.1",
     "graphql-server-express": "1.1.2",
