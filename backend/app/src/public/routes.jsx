@@ -3,7 +3,6 @@ const ReactRouter = require("react-router");
 const { StaticRouter, IndexRoute, Route } = ReactRouter;
 
 const Home = require("./components/home.jsx");
-const App = require("./components/app.jsx");
 
 const routes = (module.exports = () => {
   return (
