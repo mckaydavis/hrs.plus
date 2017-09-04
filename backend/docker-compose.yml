@@ -7,6 +7,12 @@ services:
       dockerfile: Dockerfile
     image: hrs-api:${HRS_PLUS_API_DOCKER_IMAGE_VERSION}
 
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    image: hrs-app:${HRS_PLUS_APP_DOCKER_IMAGE_VERSION}
+
   openresty:
     image: "openresty/openresty:trusty"
     entrypoint: [/usr/local/openresty/bin/openresty, -c, /web/nginx.conf, -g, daemon off;]
