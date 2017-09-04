@@ -3,7 +3,7 @@ version: '2.1'
 services:
   api:
     build:
-      context: ./api
+      context: ./app
       dockerfile: Dockerfile
     image: hrs-api:${HRS_PLUS_API_DOCKER_IMAGE_VERSION}
 

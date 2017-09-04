@@ -17,5 +17,5 @@ services:
     ports:
       - ${HRS_PLUS_API_EXPOSED_HOST_PORT}:8080
     volumes:
-      - "./api:/app"
+      - "./app:/app"
       - "/app/node_modules/"
