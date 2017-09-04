@@ -2,7 +2,6 @@ const path = require("path");
 const express = require("express");
 const reactEngine = require("react-engine");
 
-const graphqlApp = require("./graphql/app");
 const React = require("react");
 const { StaticRouter, Route } = require("react-router");
 
