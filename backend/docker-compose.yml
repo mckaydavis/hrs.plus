@@ -1,6 +1,12 @@
 version: '2.1'
 
 services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: hrs-api:${HRS_PLUS_API_DOCKER_IMAGE_VERSION}
+
   openresty:
     image: "openresty/openresty:trusty"
     entrypoint: [/usr/local/openresty/bin/openresty, -c, /web/nginx.conf, -g, daemon off;]
