@@ -16,7 +16,6 @@ services:
     container_name: hrs_api
     ports:
       - ${HRS_PLUS_API_EXPOSED_HOST_PORT}:8080
-      - 3123:3123
     volumes:
       - "./api:/app"
       - "/app/node_modules/"
@@ -34,6 +33,7 @@ services:
     container_name: hrs_app
     ports:
       - ${HRS_PLUS_APP_EXPOSED_HOST_PORT}:8080
+      - "3123:3123"
     volumes:
       - "./app:/app"
       - "/app/node_modules/"
