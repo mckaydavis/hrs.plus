@@ -4,9 +4,11 @@
   "description": "Hawaii Revised Statutes API",
   "main": "src/app.js",
   "scripts": {
-    "dev": "concurrently 'nodemon src/server.js -e js,jsx' 'watchify -t babelify src/public/index.js -o src/public/js/app.js'",
+    "dev":
+      "concurrently 'nodemon src/server.js --config nodemon.config.json -e js,jsx' 'watchify src/public/index.js -p browserify-hmr -t babelify -o src/public/js/app.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production browserify -t babelify src/public/index.js -o src/public/js/app.js",
+    "build":
+      "NODE_ENV=production browserify -t babelify src/public/index.js -o src/public/js/app.js",
     "start": "node src/server.js"
   },
   "devDependencies": {
@@ -14,11 +16,14 @@
   },
   "dependencies": {
     "babel": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
     "babelify": "^7.3.0",
     "body-parser": "1.17.2",
     "browserify": "^14.4.0",
+    "browserify-hmr": "^0.3.5",
     "cheerio": "1.0.0-rc.2",
     "concurrently": "^3.5.0",
     "express": "4.15.4",
@@ -35,6 +40,7 @@
     "reactify": "^1.1.1",
     "request": "2.81.0",
     "request-promise": "4.2.1",
+    "styled-components": "^2.1.2",
     "watchify": "^3.9.0"
   }
 }

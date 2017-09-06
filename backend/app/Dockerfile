@@ -11,5 +11,6 @@ RUN ["npm", "install"]
 COPY [".", "/app"]
 
 EXPOSE 8080
+EXPOSE 3123
 
 CMD ["npm", "start"]
