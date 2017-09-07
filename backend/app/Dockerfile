@@ -6,11 +6,11 @@ WORKDIR /app
 COPY ["package.json", "/app"]
 
 ARG NODE_ENV=production
+ARG EXPRESS_SERVER_PORT=80
 RUN ["npm", "install"]
 
 COPY [".", "/app"]
 
-EXPOSE 8080
-EXPOSE 3123
+EXPOSE $EXPRESS_SERVER_PORT
 
 CMD ["npm", "start"]
