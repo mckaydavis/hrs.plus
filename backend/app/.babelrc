@@ -1,0 +1,9 @@
+{
+  "presets": ["env", "react"],
+  "plugins": ["transform-runtime"],
+  "env": {
+    "development": {
+      "presets": ["react-hmre"]
+    }
+  }
+}

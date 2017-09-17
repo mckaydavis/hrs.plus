@@ -1,4 +1,5 @@
-const app = require('./app');
+require("node-jsx").install();
+const app = require("./app.jsx");
 
 const { EXPRESS_SERVER_PORT } = process.env;
 

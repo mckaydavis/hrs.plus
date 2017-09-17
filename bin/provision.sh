@@ -46,10 +46,13 @@ chmod a+x /usr/local/bin/docker-compose
 echo "vm.max_map_count=262144" >> /etc/sysctl.conf
 sysctl -w vm.max_map_count=262144
 
+sudo usermod -aG docker ${USER}
 
 sudo sg vagrant <<\DEVOPS_BLOCK
     cd /hrs.plus/backend
+    cp dotenv .env
     docker-compose build
     docker-compose up -d
+    echo http://localhost:8080/
 DEVOPS_BLOCK
 
