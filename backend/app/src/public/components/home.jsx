@@ -1,15 +1,21 @@
 const React = require("react");
 const styled = require("styled-components").default;
+const { Input, Label, Button } = require("rebass");
 
 class Home extends React.Component {
   render() {
-    const Test = styled.div`font-size: 12px;`;
+    const SearchInput = styled(Input)`
+      border: 1px solid var(--silver);
+      color: var(--black);
+    `;
+
     return (
       <div>
-        <Test>
-          <p>Hmm</p>
-        </Test>
-        <h1>Home</h1>
+        <div className="search">
+          <Label>Search</Label>
+          <SearchInput />
+          <Button children="Search HRS+" />
+        </div>
       </div>
     );
   }
