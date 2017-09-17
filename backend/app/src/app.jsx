@@ -1,6 +1,5 @@
 const path = require("path");
 const express = require("express");
-const reactEngine = require("react-engine");
 
 const React = require("react");
 const { StaticRouter, Route } = require("react-router");
@@ -20,16 +19,18 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 const sheet = new ServerStyleSheet();
 
 app.use("/", function(req, res) {
+  const html = renderToString(
+    <StyleSheetManager sheet={sheet.instance}>
+      <StaticRouter location={req.url} context={{}}>
+        <Routes />
+      </StaticRouter>
+    </StyleSheetManager>
+  );
+
+  const styles = sheet.getStyleElement();
+
   res.send(
-    renderToString(
-      <StyleSheetManager sheet={sheet.instance}>
-        <Base>
-          <StaticRouter location={req.url} context={{}}>
-            <Routes />
-          </StaticRouter>
-        </Base>
-      </StyleSheetManager>
-    )
+    renderToString(<Base styles={styles} dangerouslySetInnerHTML={html} />)
   );
 });
 
