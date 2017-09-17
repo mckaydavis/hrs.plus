@@ -1,5 +1,5 @@
 const React = require("react");
-const styled = require("sytled-components").default;
+const styled = require("styled-components").default;
 
 const App = (module.exports = props => {
   const Header = styled.header`
