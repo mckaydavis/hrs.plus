@@ -49,7 +49,9 @@ sysctl -w vm.max_map_count=262144
 
 sudo sg vagrant <<\DEVOPS_BLOCK
     cd /hrs.plus/backend
+    cp dotenv .env
     docker-compose build
     docker-compose up -d
+    echo http://localhost:8080/
 DEVOPS_BLOCK
 
