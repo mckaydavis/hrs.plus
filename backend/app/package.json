@@ -5,17 +5,12 @@
   "main": "src/app.js",
   "scripts": {
     "build": "npm run js:build && npm run css:build",
-    "dev":
-      "concurrently 'npm run serve' 'npm run js:watch' 'npm run css:watch'",
+    "dev": "concurrently 'npm run serve' 'npm run js:watch' 'npm run css:watch'",
     "serve": "nodemon src/server.js --config nodemon.config.json -e js,jsx",
-    "js:watch":
-      "watchify src/public/index.js -p [browserify-hmr --h 0.0.0.0 ] -t babelify -o src/public/js/app.js",
-    "js:build":
-      "NODE_ENV=production browserify -t babelify -g [ uglifyify ] src/public/index.js -o src/public/js/app.js",
-    "css:watch":
-      "postcss -w src/public/css/styles.css -o src/public/css/build.css",
-    "css:build":
-      "postcss src/public/css/styles.css -o src/public/css/build.css",
+    "js:watch": "watchify src/public/index.js -p [browserify-hmr --h 0.0.0.0 ] -t babelify -o src/public/js/app.js",
+    "js:build": "NODE_ENV=production browserify -t babelify -g [ uglifyify ] src/public/index.js -o src/public/js/app.js",
+    "css:watch": "postcss -w src/public/css/styles.css -o src/public/css/build.css",
+    "css:build": "postcss src/public/css/styles.css -o src/public/css/build.css",
     "start": "node src/server.js"
   },
   "devDependencies": {
@@ -47,6 +42,7 @@
     "postcss-font-family-system-ui": "^2.0.1",
     "postcss-font-magician": "^2.0.0",
     "postcss-import": "^10.0.0",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-engine": "^4.3.0",
