@@ -1,7 +1,9 @@
 const typeDefs = `
-type RootQuery {
-  query: RootQuery!
-  divisions(id: ID): [Division]!
+type Article {
+  id: ID!
+  name: String!
+  sections(id: ID): [Section]!
+  parts: [Part]
 }
 `;
 

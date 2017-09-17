@@ -1,13 +1,12 @@
 const typeDefs = `
-type Division {
+type Volume {
   id: ID!
-  name: String!
-  titles(id: ID): [Title]!
+  divisions(id: ID): [Division]!
 }
 `;
 
 const resolver = {
-  titles(division, args, context) {
+  divisions(volume, args, context) {
     return [];
   },
 };

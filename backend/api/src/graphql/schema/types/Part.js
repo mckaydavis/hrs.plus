@@ -1,13 +1,14 @@
 const typeDefs = `
-type Division {
+type Part {
   id: ID!
   name: String!
-  titles(id: ID): [Title]!
+  sections(id: ID): [Section]!
+  subparts(id: ID): [Part]
 }
 `;
 
 const resolver = {
-  titles(division, args, context) {
+  subparts(part, args, context) {
     return [];
   },
 };

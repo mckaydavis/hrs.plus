@@ -1,13 +1,13 @@
 const typeDefs = `
-type Division {
+type Rule {
   id: ID!
   name: String!
-  titles(id: ID): [Title]!
+  paragraph: [String]
 }
 `;
 
 const resolver = {
-  titles(division, args, context) {
+  paragraph(title, args, context) {
     return [];
   },
 };

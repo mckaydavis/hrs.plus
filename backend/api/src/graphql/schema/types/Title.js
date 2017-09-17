@@ -1,14 +1,17 @@
 const typeDefs = `
 type Title {
   id: ID!
-  sub_id: ID
   name: String!
   chapters(id: ID): [Chapter]
+  subtitles(id: ID): [Title]
 }
 `;
 
 const resolver = {
   chapters(title, args, context) {
+    return [];
+  },
+  subtitles(title, args, context) {
     return [];
   },
 };

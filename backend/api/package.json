@@ -9,6 +9,7 @@
     "start": "node src/server.js"
   },
   "devDependencies": {
+    "faker": "4.1.0",
     "nodemon": "1.11.0"
   },
   "dependencies": {
