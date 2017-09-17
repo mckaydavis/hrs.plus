@@ -1,0 +1,15 @@
+#############################
+# API server configurations #
+#############################
+
+# Host configurations
+
+HRS_PLUS_API_DOCKER_IMAGE_VERSION=local
+HRS_PLUS_API_EXPOSED_HOST_PORT=8081
+
+HRS_PLUS_APP_DOCKER_IMAGE_VERSION=local
+HRS_PLUS_APP_EXPOSED_HOST_PORT=8080
+
+# Application configurations
+GRAPHQL_USE_MOCK_DATA=1
+GRAPHQL_ENABLE_GRAPHIQL_ENDPOINT=1
