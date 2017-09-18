@@ -6,34 +6,12 @@ const styled = require("styled-components").default;
 class DivisionList extends React.Component {
   constructor() {
     super();
-    this.state = {
-      division: null
-    };
-  }
-
-  componentDidMount() {
-    const query = `
-    {
-      divisions(id: ${this.props.id}) {
-        name,
-        titles {
-          id
-          name
-        }
-      }
-    }
-    `;
-    apolloFetch({ query }).then(res => {
-      this.setState({
-        division: res.data.divisions.shift()
-      });
-    });
   }
 
   render() {
-    if (!this.state.division) return <div />;
+    if (!this.props.division) return <div />;
 
-    const { name, titles } = this.state.division;
+    const { name, titles } = this.props.division;
 
     const Separator = styled.span`
       display: inline-block;
@@ -47,10 +25,10 @@ class DivisionList extends React.Component {
         <BreadCrumb>
           <a href="/">Home</a>
           <Separator>&gt;</Separator>
-          <span>{this.state.division.name.toLowerCase()}</span>
+          <span>{name.toLowerCase()}</span>
         </BreadCrumb>
         <h1>{name}</h1>
-        {this.state.division.titles.map(leTitle => {
+        {titles.map(leTitle => {
           return (
             <ListItem title={leTitle.name} link={`/title/${leTitle.id}`} />
           );
