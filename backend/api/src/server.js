@@ -1,4 +1,4 @@
-const app = require('./app');
+const app = require("./app");
 
 const { EXPRESS_SERVER_PORT } = process.env;
 

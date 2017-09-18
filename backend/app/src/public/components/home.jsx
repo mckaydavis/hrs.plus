@@ -3,13 +3,8 @@ const styled = require("styled-components").default;
 const { Flex, Box } = require("grid-styled");
 const { Label } = require("rebass");
 const ListItem = require("./listitem.jsx");
-const { createApolloFetch } = require("apollo-fetch");
 
-const OuterContainer = styled(Box)`
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-`;
+const { OuterContainer, apolloFetch } = require("./common.jsx");
 
 const { Input } = require("rebass");
 
@@ -27,9 +22,6 @@ class Home extends React.Component {
     };
   }
   componentDidMount() {
-    const apolloFetch = createApolloFetch({
-      uri: "https://api-hxisxfilmx.now.sh/graphql"
-    });
     const query = `
       query Divisions {
         divisions {
@@ -55,6 +47,7 @@ class Home extends React.Component {
             {this.state.divisions.map(division => {
               return (
                 <ListItem
+                  key={division.id}
                   title={division.name}
                   link={`/division/${division.id}`}
                 />

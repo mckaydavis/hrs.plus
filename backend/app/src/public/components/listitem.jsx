@@ -15,11 +15,11 @@ class ListItem extends React.Component {
       }
     `;
 
-    const TitleIcon = styled.span`position: ;`;
+    const Link = styled.a`link-decoration: none;`;
 
     const { link, title } = this.props;
     return (
-      <a href={link}>
+      <Link href={link}>
         <Wrapper>
           <Box flex="1 0 0">
             <h3>
@@ -27,10 +27,10 @@ class ListItem extends React.Component {
             </h3>
           </Box>
           <Box flex="0 0 auto" pt={16}>
-            >
+            <span style={{ textDecoration: "none" }}>&gt;</span>
           </Box>
         </Wrapper>
-      </a>
+      </Link>
     );
   }
 }

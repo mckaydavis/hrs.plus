@@ -13,10 +13,11 @@ const { ServerStyleSheet, StyleSheetManager } = require("styled-components");
 const { renderToString } = require("react-dom/server");
 
 app.set("view engine", "jsx");
-
 app.use("/static", express.static(path.join(__dirname, "public")));
 
 const sheet = new ServerStyleSheet();
+
+const { apolloFetch } = require("./public/components/common.jsx");
 
 app.use("/", function(req, res) {
   const html = renderToString(
