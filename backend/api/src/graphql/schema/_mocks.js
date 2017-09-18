@@ -4,7 +4,7 @@ const request = require("request-promise");
 
 async function fetchSectionByCode(code) {
   const response = await request({
-    luri: `https://138.68.44.30/json/${code}.json`,
+    uri: `http://138.68.44.30/json/${code}.json`,
     json: true
   });
   return {
