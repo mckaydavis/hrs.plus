@@ -3,6 +3,7 @@ const styled = require("styled-components").default;
 const { Flex, Box } = require("grid-styled");
 const { Label } = require("rebass");
 const ListItem = require("./listitem.jsx");
+const { createApolloFetch } = require("apollo-fetch");
 
 const OuterContainer = styled(Box)`
   max-width: 960px;
@@ -26,18 +27,23 @@ class Home extends React.Component {
     };
   }
   componentDidMount() {
-    fetch("http://localhost:8081/graphql", {
-      method: "POST",
-      body: `
-      {
+    const apolloFetch = createApolloFetch({
+      uri: "https://api-hxisxfilmx.now.sh/graphql"
+    });
+    const query = `
+      query Divisions {
         divisions {
-          id
+          id,
           name
-          }
-        }`
-    })
-      .then(res => res.json())
-      .then(divisions => this.setState({ divisions }));
+        }
+      }`;
+
+    apolloFetch({ query })
+      .then(res => {
+        const { divisions } = res.data;
+        this.setState({ divisions });
+      })
+      .catch(err => console.log(err));
   }
   render() {
     return (
@@ -46,10 +52,14 @@ class Home extends React.Component {
           <Label style={{ marginTop: "1rem" }}>Search</Label>
           <StyledInput placeholder="Search for issues" />
           <div className="list">
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
+            {this.state.divisions.map(division => {
+              return (
+                <ListItem
+                  title={division.name}
+                  link={`/division/${division.id}`}
+                />
+              );
+            })}
           </div>
         </OuterContainer>
       </main>
