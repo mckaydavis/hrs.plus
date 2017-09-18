@@ -11,7 +11,7 @@ ES_INDEX=hrs.statutes
 ES_TYPE=default
 
 # grab HRS tarball
-wget -N https://hrs.plus/$TAR_FILE
+wget --no-check-certificate -N https://138.68.44.30/$TAR_FILE
 
 # combine the json files into a single large file that can be ingested by ES's _bulk endpoint
 python load_hrs_into_elasticsearch.py $TAR_FILE $BULK_FILE
