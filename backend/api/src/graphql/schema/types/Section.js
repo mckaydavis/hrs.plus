@@ -2,7 +2,7 @@ const typeDefs = `
 type Section {
   id: ID!
   name: String!
-  paragraph: [String]
+  paragraphs: [String]
   subsections(id: ID): [Section]
 }
 `;

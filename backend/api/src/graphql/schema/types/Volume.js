@@ -1,3 +1,5 @@
+const divisionJSON = require('../../data/divisions.json');
+
 const typeDefs = `
 type Volume {
   id: ID!
@@ -7,7 +9,7 @@ type Volume {
 
 const resolver = {
   divisions(volume, args, context) {
-    return [];
+    return divisionJSON.filter(d => volume.divisions.indexOf(d.uuid) > -1);
   },
 };
 
