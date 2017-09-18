@@ -1,16 +1,16 @@
-const data = require('./data.json');
+const data = require("./data.json");
 
-const request = require('request-promise');
+const request = require("request-promise");
 
 async function fetchSectionByCode(code) {
   const response = await request({
-    uri: `https://hrs.plus/json/${code}.json`,
-    json: true,
+    luri: `https://138.68.44.30/json/${code}.json`,
+    json: true
   });
   return {
     id: response.section,
     name: response.section_text,
-    body: [].concat(response.text).join('\n'),
+    body: [].concat(response.text).join("\n")
   };
 }
 
@@ -54,7 +54,7 @@ module.exports = {
           return SECTIONS;
         }
         return [await fetchSectionByCode(args.code)];
-      },
+      }
     };
   },
   Chapter(title) {
@@ -67,7 +67,7 @@ module.exports = {
         return sections.map(async section => {
           return await fetchSectionByCode(`${chapter.id}-${section.id}`);
         });
-      },
+      }
     };
   },
   Division() {
@@ -77,7 +77,7 @@ module.exports = {
           return division._titles;
         }
         return division._titles.filter(title => title.id == args.id);
-      },
+      }
     };
   },
   Title() {
@@ -87,7 +87,7 @@ module.exports = {
           return title._chapters;
         }
         return title._chapters.filter(chapter => chapter.id == args.id);
-      },
+      }
     };
-  },
+  }
 };
